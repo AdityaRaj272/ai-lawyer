@@ -31,15 +31,12 @@ st.markdown("""
   content: "menu"; font-family: "Material Symbols Rounded"; font-size: 1.6rem; line-height: 1;
   font-feature-settings: "liga"; -webkit-font-feature-settings: "liga";
 }
-/* only the case-title buttons (keys open_<id>): left-aligned, one line, ellipsis */
-.st-key-case_list [class*="st-key-open_"] button { justify-content: flex-start; min-height: 2.1rem; }
-.st-key-case_list [class*="st-key-open_"] button div,
-.st-key-case_list [class*="st-key-open_"] button p {
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; max-width: 100%;
+/* case list: title buttons (first column) left-aligned, one line with ellipsis */
+.st-key-case_list [data-testid="stColumn"]:first-child button { justify-content: flex-start; text-align: left; }
+.st-key-case_list [data-testid="stColumn"]:first-child button > div { min-width: 0; overflow: hidden; }
+.st-key-case_list [data-testid="stColumn"]:first-child button p {
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;
 }
-/* the ... menu button: just the icon, no dropdown chevron */
-.st-key-case_list [data-testid="stPopover"] button { padding-left: 0.4rem; padding-right: 0.4rem; justify-content: center; }
-.st-key-case_list [data-testid="stPopover"] button [data-testid="stIconMaterial"] + div:empty { display: none; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -118,19 +115,25 @@ with st.sidebar:
                           help=c["title"] if len(c["title"]) > 28 else None):
                 st.session_state.case_id = c["id"]
                 st.rerun()
-            with menu.popover("", icon=":material/more_horiz:", help="Rename or delete"):
-                new_title = st.text_input("Case name", value=c["title"], key=f"rn_{c['id']}")
-                if st.button("Rename", icon=":material/edit:", key=f"rns_{c['id']}", width="stretch"):
-                    _c = store.load(c["id"], ROOT)
-                    _c["title"], _c["title_locked"] = new_title.strip()[:60] or _c["title"], True
-                    store.save(_c)
-                    st.rerun()
-                if st.button("Delete case", icon=I["delete"], key=f"del_{c['id']}", type="primary", width="stretch"):
-                    store.delete_case(c["id"], ROOT)
-                    if active:
-                        st.session_state.pop("case_id")
-                    st.rerun()
-                st.caption(f"{c['n_files']} files · updated {c['updated'][:16].replace('T', ' ')}")
+            if menu.button("", icon=":material/more_horiz:", key=f"menu_{c['id']}", type="tertiary", help="Rename or delete"):
+                st.session_state.case_menu = None if st.session_state.get("case_menu") == c["id"] else c["id"]
+                st.rerun()
+            if st.session_state.get("case_menu") == c["id"]:
+                with st.container(border=True):
+                    new_title = st.text_input("Case name", value=c["title"], key=f"rn_{c['id']}")
+                    if st.button("Rename", icon=":material/edit:", key=f"rns_{c['id']}", width="stretch"):
+                        _c = store.load(c["id"], ROOT)
+                        _c["title"], _c["title_locked"] = new_title.strip()[:60] or _c["title"], True
+                        store.save(_c)
+                        st.session_state.case_menu = None
+                        st.rerun()
+                    if st.button("Delete case", icon=I["delete"], key=f"del_{c['id']}", type="primary", width="stretch"):
+                        store.delete_case(c["id"], ROOT)
+                        if active:
+                            st.session_state.pop("case_id")
+                        st.session_state.case_menu = None
+                        st.rerun()
+                    st.caption(f"{c['n_files']} files · updated {c['updated'][:16].replace('T', ' ')}")
 
     st.divider()
     with st.expander("Model (swappable)", icon=I["model"], expanded=False):
