@@ -31,11 +31,15 @@ st.markdown("""
   content: "menu"; font-family: "Material Symbols Rounded"; font-size: 1.6rem; line-height: 1;
   font-feature-settings: "liga"; -webkit-font-feature-settings: "liga";
 }
-.st-key-case_list button { justify-content: flex-start; min-height: 2.1rem; }
-.st-key-case_list button div, .st-key-case_list button p {
+/* only the case-title buttons (keys open_<id>): left-aligned, one line, ellipsis */
+.st-key-case_list [class*="st-key-open_"] button { justify-content: flex-start; min-height: 2.1rem; }
+.st-key-case_list [class*="st-key-open_"] button div,
+.st-key-case_list [class*="st-key-open_"] button p {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; max-width: 100%;
 }
-.st-key-case_list [data-testid="stHorizontalBlock"] { gap: 0.25rem; }
+/* the ... menu button: just the icon, no dropdown chevron */
+.st-key-case_list [data-testid="stPopover"] button { padding-left: 0.4rem; padding-right: 0.4rem; justify-content: center; }
+.st-key-case_list [data-testid="stPopover"] button [data-testid="stIconMaterial"] + div:empty { display: none; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -109,7 +113,7 @@ with st.sidebar:
     with st.container(key="case_list"):
         for c in cases:
             active = c["id"] == st.session_state.case_id
-            row, menu = st.columns([6, 1], vertical_alignment="center", gap="small")
+            row, menu = st.columns([5, 1], vertical_alignment="center", gap="medium")
             if row.button(c["title"], key=f"open_{c['id']}", type="secondary" if active else "tertiary", width="stretch",
                           help=c["title"] if len(c["title"]) > 28 else None):
                 st.session_state.case_id = c["id"]
