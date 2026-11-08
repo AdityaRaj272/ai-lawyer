@@ -1,0 +1,66 @@
+{
+  "model": "groq/openai/gpt-oss-120b",
+  "conversation": [
+    {
+      "id": "C01_deposit_english",
+      "checks": {
+        "model_answered": true,
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "asks_upload": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 43.0
+    },
+    {
+      "id": "C03_salary_hindi",
+      "checks": {
+        "model_answered": true,
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "asks_question": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 41.6
+    },
+    {
+      "id": "C08_out_of_scope_divorce",
+      "checks": {
+        "model_answered": true,
+        "referral_min": true,
+        "language_script": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 35.0
+    },
+    {
+      "id": "C10_trap_ipc",
+      "checks": {
+        "model_answered": true,
+        "problem_type": true,
+        "language_script": true,
+        "no_repealed_citation": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 43.2
+    },
+    {
+      "id": "C11_trap_case_law",
+      "checks": {
+        "model_answered": true,
+        "language_script": true,
+        "no_unverified_case_law": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 36.3
+    }
+  ],
+  "retrieval": []
+}

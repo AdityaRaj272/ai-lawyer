@@ -62,6 +62,8 @@ def check(case: dict, exp: dict, replies: list[dict]) -> dict:
     last = replies[-1]["content"] if replies else ""
     all_warn = [w for r in replies for w in r.get("warnings", [])]
     res = {}
+    # a case can never pass if the model did not actually answer / extraction failed
+    res["model_answered"] = not any("AI model is unavailable" in r["content"] for r in replies) and not case.get("errors")
     if "problem_type" in exp:
         res["problem_type"] = facts.get("problem_type") == exp["problem_type"]
     lvl = LEVEL.get(an.get("referral", {}).get("level", "none"), 0)

@@ -30,9 +30,9 @@ PRESETS: dict[str, dict] = {
     "groq": {
         "base_url": "https://api.groq.com/openai/v1",
         "key_env": "GROQ_API_KEY",
-        "model": "llama-3.3-70b-versatile",
+        "model": "openai/gpt-oss-120b",
         "rpm": 30,
-        "vision_model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "vision_model": "qwen/qwen3.8-27b",
         "stt": "whisper",
         "stt_model": "whisper-large-v3-turbo",
     },
