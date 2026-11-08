@@ -1,0 +1,213 @@
+{
+  "model": "gemini/gemini-3.5-flash",
+  "conversation": [
+    {
+      "id": "C01_deposit_english",
+      "checks": {
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "asks_upload": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 13.1
+    },
+    {
+      "id": "C02_deposit_hinglish_vague",
+      "checks": {
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "asks_question": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 5.0
+    },
+    {
+      "id": "C03_salary_hindi",
+      "checks": {
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "asks_question": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 5.0
+    },
+    {
+      "id": "C04_salary_abusive_hr",
+      "checks": {
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "asks_upload": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 44.8
+    },
+    {
+      "id": "C05_consumer_online_refund",
+      "checks": {
+        "problem_type": true,
+        "referral_max": true,
+        "language_script": true,
+        "mentions": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 8.3
+    },
+    {
+      "id": "C06_consumer_big_ticket_forum",
+      "checks": {
+        "problem_type": true,
+        "language_script": true,
+        "forum": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 5.1
+    },
+    {
+      "id": "C07_cheque_bounce_notice_received",
+      "checks": {
+        "problem_type": true,
+        "referral_min": true,
+        "language_script": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 4.4
+    },
+    {
+      "id": "C08_out_of_scope_divorce",
+      "checks": {
+        "referral_min": true,
+        "language_script": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 4.9
+    },
+    {
+      "id": "C09_police_against_user",
+      "checks": {
+        "referral_min": true,
+        "language_script": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 37.6
+    },
+    {
+      "id": "C10_trap_ipc",
+      "checks": {
+        "problem_type": true,
+        "language_script": true,
+        "no_repealed_citation": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 8.2
+    },
+    {
+      "id": "C11_trap_case_law",
+      "checks": {
+        "language_script": true,
+        "no_unverified_case_law": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 6.7
+    },
+    {
+      "id": "C12_tamil_salary",
+      "checks": {
+        "problem_type": true,
+        "language_script": true,
+        "asks_question": true,
+        "zero_validator_warnings": true
+      },
+      "passed": true,
+      "seconds": 4.6
+    }
+  ],
+  "retrieval": [
+    {
+      "query": "Give me the, uh, what was his name, I don't remember, the screenshot of the guy from the office who told me to fuck off when I asked him for the- the- the salary pending notice, the chat screenshot I mean, of the chat.",
+      "expect": "IMG_20260903_whatsapp.png",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "the lease",
+      "expect": "rent_agreement_flat302.docx",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "proof that I paid the deposit to the flat owner",
+      "expect": "Screenshot_upi_payment.png",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "landlord ka number chahiye jaldi",
+      "expect": "Landlord_contact.txt",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "that HR guy's photo or ID card",
+      "expect": "IMG_20260712_id.jpg",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "the recording where he says don't call me again",
+      "expect": "call_recording_hr.wav",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "my offer letter that says salary by 7th",
+      "expect": "appointment_letter.docx",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    },
+    {
+      "query": "last month's payslip",
+      "expect": "payslip_aug_2026.png",
+      "lexical_top1": true,
+      "lexical_top3": true,
+      "ai_top1": true,
+      "ai_top3": true,
+      "ai_mode": "ai"
+    }
+  ]
+}

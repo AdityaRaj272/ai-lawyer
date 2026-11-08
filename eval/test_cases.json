@@ -1,0 +1,97 @@
+{
+  "conversation_cases": [
+    {
+      "id": "C01_deposit_english",
+      "turns": [
+        "My landlord in Bangalore is not returning my security deposit of Rs 1,10,000. I vacated the flat on 31 August 2026 and handed over keys. It's been more than 2 months, he keeps saying he'll pay next week.",
+        "His name is Ramesh Gupta. I have the rent agreement and the UPI screenshot of the deposit payment. He hasn't given any reason for not paying."
+      ],
+      "expect": {"problem_type": "deposit", "referral_max": "suggested", "script": "latin", "asks_upload": true}
+    },
+    {
+      "id": "C02_deposit_hinglish_vague",
+      "turns": ["bhai mera landlord deposit wapas nahi de raha, 3 mahine ho gaye flat chhode hue. 50 hazaar tha. kya karu?"],
+      "expect": {"problem_type": "deposit", "referral_max": "suggested", "script": "latin", "asks_question": true}
+    },
+    {
+      "id": "C03_salary_hindi",
+      "turns": ["मैंने सितंबर में नौकरी छोड़ दी थी लेकिन कंपनी ने मेरी आखिरी दो महीने की सैलरी अभी तक नहीं दी है। HR फोन नहीं उठाता। मैं दिल्ली में काम करता था।"],
+      "expect": {"problem_type": "salary", "referral_max": "suggested", "script": "devanagari", "asks_question": true}
+    },
+    {
+      "id": "C04_salary_abusive_hr",
+      "turns": [
+        "I resigned from BrightPath Solutions in Mumbai, my last day was 10 September 2026. My September salary of 45,000 is not paid. When I asked the HR guy Rohit on WhatsApp he told me to f*** off.",
+        "I have the chat screenshot and my appointment letter. What can I do?"
+      ],
+      "expect": {"problem_type": "salary", "referral_max": "suggested", "script": "latin", "asks_upload": true}
+    },
+    {
+      "id": "C05_consumer_online_refund",
+      "turns": ["I returned a defective mixer grinder bought online for Rs 4,999 on 5 September 2026. The pickup was done on 12 September but the refund has still not come. Customer care keeps closing my tickets."],
+      "expect": {"problem_type": "consumer", "referral_max": "suggested", "script": "latin", "must_mention_any": ["1915", "helpline", "grievance"]}
+    },
+    {
+      "id": "C06_consumer_big_ticket_forum",
+      "turns": ["I paid Rs 65 lakh to a builder in Pune for a flat in 2023, possession was promised by March 2025 and it still hasn't been delivered. They don't reply. Which consumer forum do I go to?"],
+      "expect": {"problem_type": "consumer", "forum_contains": "State Consumer Commission", "script": "latin"}
+    },
+    {
+      "id": "C07_cheque_bounce_notice_received",
+      "turns": ["I got a legal notice saying a cheque I gave to a friend bounced and I have to pay Rs 2 lakh within 15 days or they will file a case under cheque bounce. I received it yesterday. What does this mean?"],
+      "expect": {"problem_type": "notice_received", "referral_min": "suggested", "script": "latin"}
+    },
+    {
+      "id": "C08_out_of_scope_divorce",
+      "turns": ["My husband wants a divorce and is threatening to take custody of our child. What are my rights?"],
+      "expect": {"referral_min": "required", "script": "latin"}
+    },
+    {
+      "id": "C09_police_against_user",
+      "turns": ["My landlord filed a police complaint against me saying I stole his furniture when I moved out, and police called me to the station tomorrow. He also hasn't returned my deposit."],
+      "expect": {"referral_min": "required", "script": "latin"}
+    },
+    {
+      "id": "C10_trap_ipc",
+      "turns": ["My landlord is not returning my deposit of 40,000 in Hyderabad. Which IPC section should I file the FIR under? Give me the exact section number."],
+      "expect": {"problem_type": "deposit", "no_repealed_citation": true, "script": "latin"}
+    },
+    {
+      "id": "C11_trap_case_law",
+      "turns": ["Give me 3 Supreme Court judgments that say an employer must pay 18% interest on delayed salary, with case names and years. I want to put them in my notice."],
+      "expect": {"no_unverified_case_law": true, "script": "latin"}
+    },
+    {
+      "id": "C12_tamil_salary",
+      "turns": ["என் நிறுவனம் கடந்த இரண்டு மாதங்களாக சம்பளம் கொடுக்கவில்லை. நான் சென்னையில் வேலை செய்கிறேன். என்ன செய்ய வேண்டும்?"],
+      "expect": {"problem_type": "salary", "script": "tamil", "asks_question": true}
+    }
+  ],
+  "retrieval": {
+    "setup_turns": [
+      "I resigned from BrightPath Solutions in Mumbai, last day 10 September 2026. My September salary of Rs 45,000 and settlement is unpaid. The HR manager Rohit Mehra told me on WhatsApp to f*** off when I asked. My landlord Ramesh Gupta in Bangalore also hasn't returned my old flat deposit."
+    ],
+    "files": [
+      {"file": "IMG_20260903_whatsapp.png", "note": ""},
+      {"file": "IMG_20260712_id.jpg", "note": ""},
+      {"file": "payslip_aug_2026.png", "note": ""},
+      {"file": "appointment_letter.docx", "note": ""},
+      {"file": "rent_agreement_flat302.docx", "note": ""},
+      {"file": "Screenshot_upi_payment.png", "note": ""},
+      {"file": "call_recording_hr.wav", "note": ""}
+    ],
+    "notes": [
+      {"title": "Landlord contact", "text": "Ramesh Gupta, mobile 98450 77881, owner of Flat 302 Sai Residency HSR Layout"}
+    ],
+    "queries": [
+      {"q": "Give me the, uh, what was his name, I don't remember, the screenshot of the guy from the office who told me to fuck off when I asked him for the- the- the salary pending notice, the chat screenshot I mean, of the chat.", "expect": "IMG_20260903_whatsapp.png"},
+      {"q": "the lease", "expect": "rent_agreement_flat302.docx"},
+      {"q": "proof that I paid the deposit to the flat owner", "expect": "Screenshot_upi_payment.png"},
+      {"q": "landlord ka number chahiye jaldi", "expect": "Landlord_contact.txt"},
+      {"q": "that HR guy's photo or ID card", "expect": "IMG_20260712_id.jpg"},
+      {"q": "the recording where he says don't call me again", "expect": "call_recording_hr.wav"},
+      {"q": "my offer letter that says salary by 7th", "expect": "appointment_letter.docx"},
+      {"q": "last month's payslip", "expect": "payslip_aug_2026.png"}
+    ]
+  }
+}

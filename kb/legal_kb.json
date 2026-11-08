@@ -1,0 +1,227 @@
+{
+  "_meta": {
+    "purpose": "The ONLY legal provisions the assistant may cite. Anything not here is flagged as unverified by core/validator.py.",
+    "verification": "Each entry was checked on 2026-11-08 against bare-act text (advocatekhoj / India Code reproductions) or, where the bare text was unreachable, against at least two independent credible sources (government allocations, law-firm alerts, legal news). Sources are listed per entry in verified_by. Entries that could not be verified were REMOVED: CPA s.37 (mediation - substituted by the Mediation Act 2023, current text not confirmed), Payment of Wages Act transition, managerial-staff exclusion claim, CPC Order XXXVII.",
+    "not_legal_advice": "Summaries are plain-language paraphrases written for laypeople; they are not the statutory text.",
+    "repealed_from_2024_07_01": ["Indian Penal Code 1860 -> Bharatiya Nyaya Sanhita 2023", "Code of Criminal Procedure 1973 -> Bharatiya Nagarik Suraksha Sanhita 2023", "Indian Evidence Act 1872 -> Bharatiya Sakshya Adhiniyam 2023"],
+    "last_reviewed": "2026-11-08"
+  },
+  "entries": [
+    {
+      "id": "cpa-2-7", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection Act, 2019", "section": "2(7)",
+      "title": "Who is a 'consumer'",
+      "summary": "A person who buys goods or hires/avails services for a price (paid, promised or partly paid), including offline or online transactions through electronic means. It excludes people who buy for resale or for a commercial purpose.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/2.php"]
+    },
+    {
+      "id": "cpa-2-11", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection Act, 2019", "section": "2(11)",
+      "title": "Deficiency in service",
+      "summary": "Any fault, imperfection, shortcoming or inadequacy in the quality, nature and manner of performance of a service, including negligence or omission that causes loss, and deliberately withholding relevant information.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/2.php"]
+    },
+    {
+      "id": "cpa-2-47", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection Act, 2019", "section": "2(47)",
+      "title": "Unfair trade practice (incl. refusing returns/refunds)",
+      "summary": "Includes deceptive or unfair selling methods, and specifically refusing, after selling goods or providing a service, to take back defective goods, withdraw deficient services, or refund the price within the period stated in the bill/receipt - or within 30 days if no period is stated.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/2.php"]
+    },
+    {
+      "id": "cpa-34", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection Act, 2019", "section": "34(2)",
+      "title": "Where to file a consumer complaint",
+      "summary": "A complaint can be filed in the District Commission where the opposite party lives/does business, where the cause of action arose, OR where the complainant lives or personally works for gain.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/34.php"]
+    },
+    {
+      "id": "cpa-35", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection Act, 2019", "section": "35",
+      "title": "Filing a complaint before the District Commission",
+      "summary": "The consumer (or a recognised consumer association, or a group of consumers with permission) can file a complaint about defective goods, deficient services or unfair trade practices. The complaint may be filed electronically. The Act does not require you to hire a lawyer.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/35.php"]
+    },
+    {
+      "id": "cpa-jurisdiction-rules-2021", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021", "section": "Rules 3-5",
+      "title": "Which Commission (by amount paid)",
+      "summary": "Decided by the value of goods/services PAID as consideration: up to Rs 50 lakh -> District Commission; above Rs 50 lakh up to Rs 2 crore -> State Commission; above Rs 2 crore -> National Commission (NCDRC).",
+      "source": "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf",
+      "verified_by": ["https://www.scconline.com/blog/post/2022/01/03/pecuniary-jurisdiction-of-district-state-and-national-commissions-revised-vide-consumer-protection-jurisdiction-of-the-district-commission-the-state-commission-and-the-national-commission-rules-2/", "https://www.livelaw.in/amp/news-updates/central-govt-notifies-consumer-protection-rules-2021-revising-pecuniary-jurisdiction-district-state-national-commissions-188575"]
+    },
+    {
+      "id": "cpa-69", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection Act, 2019", "section": "69",
+      "title": "Time limit for consumer complaints",
+      "summary": "A complaint must be filed within 2 years from the date the cause of action arose. A later complaint can be admitted only if the Commission accepts there was sufficient cause for the delay (and records reasons).",
+      "source": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/69.php"]
+    },
+    {
+      "id": "cpa-fee", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection (Consumer Disputes Redressal Commissions) Rules, 2020", "section": "Rule 7",
+      "title": "Filing fee",
+      "summary": "No fee for complaints where the value of goods/services paid is up to Rs 5 lakh. Above that, fees rise in slabs - check the current table on e-Jagriti before filing.",
+      "source": "https://e-jagriti.gov.in",
+      "verified_by": ["https://nyaaya.org/legal-explainer/fee-for-making-complaints/", "https://www.dtnext.in/city/2022/12/30/no-fee-for-consumer-disputeplaints-worth-less-than-rs-5l"]
+    },
+    {
+      "id": "ecom-rules-4", "applies_to": ["consumer"], "status": "verified",
+      "law": "Consumer Protection (E-Commerce) Rules, 2020", "section": "Rule 4(5)",
+      "title": "E-commerce grievance officer",
+      "summary": "Every e-commerce entity must have a grievance officer whose name and contact are shown on its platform. The officer must acknowledge a consumer complaint within 48 hours and resolve it within one month of receiving it.",
+      "source": "https://consumeraffairs.nic.in",
+      "verified_by": ["https://www.lkslaw.com/insights/news/e-commerce-consumer-protection-e-commerce-rules-2020-notified", "https://hsalegal.com/wp-content/uploads/2020/09/HSA-Corp-Comm-Law-Policy-The-Consumer-Protection-E-commerce-Rules-2020.pdf"]
+    },
+    {
+      "id": "ejagriti", "applies_to": ["consumer"], "status": "verified",
+      "law": "Procedure (e-Jagriti portal)", "section": null,
+      "title": "Online filing: e-Jagriti",
+      "summary": "Consumer complaints to District, State and National Commissions are filed online at e-jagriti.gov.in (it replaced the older e-Daakhil portal from January 2025): register, fill in details, upload documents, pay the fee if any.",
+      "source": "https://e-jagriti.gov.in",
+      "verified_by": ["https://en.wikipedia.org/wiki/E-Jagriti", "https://business-standard.com/india-news/after-e-daakhil-govt-to-roll-out-e-jagriti-to-streamline-case-filing-124112700697_1.html"]
+    },
+    {
+      "id": "nch", "applies_to": ["consumer"], "status": "verified",
+      "law": "Procedure (National Consumer Helpline)", "section": null,
+      "title": "National Consumer Helpline (free, pre-litigation)",
+      "summary": "Free route before going to a Commission: call 1915 or register at consumerhelpline.gov.in / the NCH app. NCH takes up the grievance with the company; many refunds get resolved here.",
+      "source": "https://consumerhelpline.gov.in",
+      "verified_by": ["https://dot.gov.in/node/19850"]
+    },
+    {
+      "id": "ica-73", "applies_to": ["deposit", "salary", "consumer"], "status": "verified",
+      "law": "Indian Contract Act, 1872", "section": "73",
+      "title": "Compensation for breach of contract",
+      "summary": "When a contract is broken, the party who suffers can claim compensation for loss that naturally arose in the usual course of things from the breach (or that both sides knew was likely), but not for remote and indirect loss.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "verified_by": ["https://www.latestlaws.com/bare-acts/central-acts-rules/section-73-compensation-of-loss-or-damage-caused-by-breach-of-contract/", "https://lawgist.in/indian-contract-act/73"]
+    },
+    {
+      "id": "limitation-money", "applies_to": ["deposit"], "status": "verified",
+      "law": "Limitation Act, 1963", "section": "Schedule (e.g. Art. 55 / Art. 113)",
+      "title": "Time limit for a civil money-recovery suit",
+      "summary": "A civil suit to recover money such as a security deposit generally has to be filed within 3 years. Which Article applies, and the exact start date (when the refund fell due, or when it was refused), depends on the facts - confirm with a lawyer if you are close to 3 years.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/1565",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/limitation/part6.php", "https://sudhirrao.com/insights/recover-security-deposit-landlord-legal-remedies-india"]
+    },
+    {
+      "id": "cpc-80", "applies_to": ["deposit", "salary", "consumer", "notice_received"], "status": "verified",
+      "law": "Code of Civil Procedure, 1908", "section": "80",
+      "title": "Notice before suing the Government",
+      "summary": "Before filing a civil suit against the Government or a public officer (for official acts), a written notice must be delivered and 2 months must pass (unless the court gives leave to sue earlier).",
+      "source": "https://www.indiacode.nic.in/handle/123456789/2191",
+      "verified_by": ["https://blog.ipleaders.in/section-80-cpc/", "https://lawfoyer.in/suits-by-or-against-government-section-79-82-cpc/"]
+    },
+    {
+      "id": "mta-2021", "applies_to": ["deposit"], "status": "verified",
+      "law": "Model Tenancy Act, 2021", "section": "11",
+      "title": "Security deposit cap (only where a State has adopted the Model Tenancy Act)",
+      "summary": "Caps the security deposit at 2 months' rent for residential premises (6 months for non-residential); it is refundable when the tenant hands back the premises, after deducting the tenant's dues. It is a MODEL law: it applies only in States that passed a law based on it.",
+      "source": "https://mohua.gov.in",
+      "verified_by": ["https://ksandk.com/real-estate/the-model-tenancy-act-2021/", "https://www.livelaw.in/amp/know-the-law/model-tenancy-act-key-features-175196", "https://housing.com/news/laws-related-to-security-deposit-in-india/"]
+    },
+    {
+      "id": "rent-state-law", "applies_to": ["deposit"], "status": "verified",
+      "law": "State rent laws + the rent agreement", "section": null,
+      "title": "Deposit rules depend on your State and your agreement",
+      "summary": "Rent/tenancy law is State-specific. In most everyday cases the deposit refund is governed by what the rent / leave-and-licence agreement says; keeping the deposit without a valid deduction is a breach of that agreement.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://housing.com/news/laws-related-to-security-deposit-in-india/"]
+    },
+    {
+      "id": "cow-17", "applies_to": ["salary"], "status": "verified",
+      "law": "Code on Wages, 2019", "section": "17",
+      "title": "Deadline for paying wages",
+      "summary": "Monthly wages must be paid before the end of the 7th day of the following month. If an employee is removed, dismissed, retrenched or resigns, the wages due must be paid within 2 working days. (The Code on Wages came into force on 21 Nov 2025, replacing older wage laws.)",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/codeonwages/17.php", "https://www.livelaw.in/articles/two-working-days-code-wages-employee-final-settlement-552780", "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-in/alerts-hub/2025/11/new-labour-codes-implemented-across-the-country-effective-21-november-2025.pdf"]
+    },
+    {
+      "id": "cow-45", "applies_to": ["salary"], "status": "verified",
+      "law": "Code on Wages, 2019", "section": "45",
+      "title": "Claim for unpaid wages before the wage authority",
+      "summary": "An employee (or their registered trade union, or the Inspector-cum-Facilitator) can apply to the authority appointed by the government for unpaid or delayed wages. File within 3 years (later only with sufficient cause). The authority can order payment plus compensation of up to 10 times the amount.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/codeonwages/45.php"]
+    },
+    {
+      "id": "ni-138", "applies_to": ["notice_received", "deposit", "salary", "consumer"], "status": "verified",
+      "law": "Negotiable Instruments Act, 1881", "section": "138",
+      "title": "Cheque bounce",
+      "summary": "If a cheque given for a debt bounces, the payee must send a written demand notice within 30 days of getting the bank's return memo; the drawer then has 15 days from receiving the notice to pay. If not paid, the payee can file a criminal complaint within one month after that (s.142). It is a criminal case - get a lawyer.",
+      "source": "https://www.indiacode.nic.in/handle/123456789/2189",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/negotiableinstruments/138.php (15-day text shown is pre-2003; 30 days per Act 55 of 2002)", "https://api.sci.gov.in/supremecourt/2018/27023/27023_2018_Judgement_08-May-2019.pdf", "https://blog.ipleaders.in/section-142-of-negotiable-instruments-act-1881/"]
+    },
+    {
+      "id": "legal-notice", "applies_to": ["deposit", "salary", "consumer", "notice_received"], "status": "verified",
+      "law": "General practice", "section": null,
+      "title": "What a legal notice is",
+      "summary": "A formal written demand sent before going to court. For most private disputes it is not legally required (exceptions include suits against the Government under CPC s.80 and cheque bounce under NI Act s.138), but it creates a dated record, often triggers payment, and is useful evidence later. You can send it yourself by Registered Post with AD / Speed Post and keep the receipt.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://blog.ipleaders.in/section-80-cpc/"]
+    },
+    {
+      "id": "notice-reply", "applies_to": ["notice_received"], "status": "verified",
+      "law": "General practice", "section": null,
+      "title": "Replying to a notice you received",
+      "summary": "A private legal notice from the other side is a demand, not a court order. Replying puts your side on record. Court summons, police notices and government notices are different - they carry binding dates, so get a lawyer.",
+      "source": "https://nalsa.gov.in",
+      "verified_by": []
+    },
+    {
+      "id": "bns-316", "applies_to": ["deposit", "salary", "consumer"], "status": "verified",
+      "law": "Bharatiya Nyaya Sanhita, 2023", "section": "316",
+      "title": "Criminal breach of trust (replaced IPC 405-409)",
+      "summary": "Dishonestly misusing property that was entrusted to someone. Ordinary non-payment of a deposit or salary is usually treated as a civil dispute; a criminal complaint fits only where there is dishonest misappropriation. Talk to a lawyer before going the criminal route.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/bharatiyanyayasanhita/316.php", "https://law.drishtiias.com/current-affairs/section-316-and-318-of-bns"]
+    },
+    {
+      "id": "bns-318", "applies_to": ["deposit", "salary", "consumer"], "status": "verified",
+      "law": "Bharatiya Nyaya Sanhita, 2023", "section": "318",
+      "title": "Cheating (replaced IPC 415-420)",
+      "summary": "Deceiving someone dishonestly to make them hand over property. Courts require a dishonest intention from the very start (e.g. a fake seller who never meant to deliver) - not just a late refund.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/bharatiyanyayasanhita/318.php", "https://law.drishtiias.com/current-affairs/section-316-and-318-of-bns"]
+    },
+    {
+      "id": "bnss-173", "applies_to": ["deposit", "salary", "consumer", "notice_received"], "status": "verified",
+      "law": "Bharatiya Nagarik Suraksha Sanhita, 2023", "section": "173",
+      "title": "FIR / Zero FIR (replaced CrPC 154)",
+      "summary": "Information about a cognizable offence can be given at any police station, irrespective of where the offence happened (Zero FIR), including by electronic communication (sign within 3 days). The informant gets a free copy.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://azbpartners.com/wp-content/uploads/2024/07/Article-on-BNSS-26-07-2024.pdf", "https://www.legacyias.com/fir-vs-zero-fir-vs-e-fir-bnss-2023/"]
+    },
+    {
+      "id": "bsa-63", "applies_to": ["deposit", "salary", "consumer", "notice_received"], "status": "verified",
+      "law": "Bharatiya Sakshya Adhiniyam, 2023", "section": "63",
+      "title": "Screenshots, chats, recordings as evidence (replaced Evidence Act s.65B)",
+      "summary": "Electronic records (WhatsApp chats, emails, screenshots, audio) can be used as evidence with a certificate about the device/source. Keep the ORIGINAL phone/file safe - not just forwarded copies.",
+      "source": "https://www.indiacode.nic.in",
+      "verified_by": ["https://www.legalserviceindia.com/legal/article-17611-admissibility-of-electronic-records-understanding-section-63-of-the-bharatiya-sakshya-adhiniyam-2023-bsa.html", "https://www.apnilaw.com/bare-act/bsa/section-63-bharatiya-sakshya-adhiniyam-bsa-admissibility-of-electronic-records"]
+    },
+    {
+      "id": "lsa-12", "applies_to": ["deposit", "salary", "consumer", "notice_received", "other"], "status": "verified",
+      "law": "Legal Services Authorities Act, 1987", "section": "12",
+      "title": "Who gets a free lawyer",
+      "summary": "Free legal services for: SC/ST members, victims of trafficking or forced labour, women and children, persons with disability, victims of disasters/ethnic violence/caste atrocity, industrial workmen, people in custody, and people with income below the limit set by the government.",
+      "source": "https://nalsa.gov.in",
+      "verified_by": ["https://www.advocatekhoj.com/library/bareacts/legalservicesauthorities/12.php"]
+    },
+    {
+      "id": "nalsa", "applies_to": ["deposit", "salary", "consumer", "notice_received", "other"], "status": "verified",
+      "law": "Procedure (Legal Services Authorities)", "section": null,
+      "title": "Free legal help: NALSA 15100 / District Legal Services Authority",
+      "summary": "Call 15100 (NALSA's free legal-aid helpline) or visit the District Legal Services Authority (DLSA) at your district court for free advice, a free lawyer if eligible, and Lok Adalat settlement.",
+      "source": "https://nalsa.gov.in",
+      "verified_by": ["https://dot.gov.in/node/5359"]
+    }
+  ]
+}
