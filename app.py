@@ -160,17 +160,18 @@ with st.sidebar:
         st.error(f"Add {key_env} to .env (or above) to enable AI.", icon=I["key"])
 
     st.divider()
-    st.caption("Covers in depth: security deposit · unpaid salary · consumer refunds · notices received. "
-               "Free legal aid: **NALSA 15100** · Consumer helpline **1915** · Emergency **112**.")
-    st.divider()
     if AUTH:
         with st.container(key="user_row"):
             u1, u2 = st.columns([5, 1], vertical_alignment="center")
+            email = (USER_ID or "").replace("@", "&#64;")  # stop Markdown auto-linking the address
             u1.markdown(f":material/account_circle: **{st.user.get('name') or USER_ID}**  \n"
-                        f"<small>{USER_ID}</small>", unsafe_allow_html=True)
+                        f"<small style='opacity:0.7'>{email}</small>", unsafe_allow_html=True)
             u2.button("", icon=":material/logout:", help="Sign out", on_click=st.logout, key="logout", type="tertiary")
     else:
         st.caption(":material/person_off: Guest mode - cases are stored on this computer only")
+    st.divider()
+    st.caption("Covers in depth: security deposit · unpaid salary · consumer refunds · notices received. "
+               "Free legal aid: **NALSA 15100** · Consumer helpline **1915** · Emergency **112**.")
 
 case = store.load(st.session_state.case_id, ROOT)
 analysis = case.get("analysis") or rules.analyze(case["facts"], engine.all_user_text(case))
