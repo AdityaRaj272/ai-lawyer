@@ -12,6 +12,7 @@ from __future__ import annotations
 import io
 import json
 import re
+from pathlib import Path
 from datetime import date
 
 from . import kb, rules, store, vault
@@ -157,6 +158,59 @@ def to_docx(title: str, text: str) -> bytes:
     buf = io.BytesIO()
     d.save(buf)
     return buf.getvalue()
+
+
+def split_doc(text: str) -> tuple[str, str]:
+    """Separate the sendable document (+ its References) from the private 'NOTES FOR YOU' advice."""
+    m = re.search(r"\n\s*-{3,}\s*\n\s*\**\s*NOTES FOR YOU:?\s*\**", text, re.I)
+    if not m:
+        return text.strip(), ""
+    doc, rest = text[:m.start()], text[m.end():]
+    ri = rest.find("\nReferences:")
+    notes = rest[:ri] if ri != -1 else rest
+    if ri != -1:
+        doc += "\n\n" + rest[ri:].strip()
+    return doc.strip(), notes.strip()
+
+
+FONT_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
+DEVANAGARI = re.compile(r"[ऀ-ॿ]")
+
+
+def to_pdf(title: str, text: str) -> bytes:
+    """Print-ready A4 PDF. Bundled Noto fonts + HarfBuzz shaping so Hindi (Devanagari) renders correctly."""
+    from fpdf import FPDF
+
+    pdf = FPDF(format="A4")
+    pdf.set_margins(20, 18, 20)
+    pdf.set_auto_page_break(True, 18)
+    pdf.add_font("Noto", "", str(FONT_DIR / "NotoSans-Regular.ttf"))
+    pdf.add_font("Noto", "B", str(FONT_DIR / "NotoSans-Bold.ttf"))
+    pdf.add_font("Deva", "", str(FONT_DIR / "NotoSansDevanagari-Regular.ttf"))
+    pdf.add_font("Deva", "B", str(FONT_DIR / "NotoSansDevanagari-Bold.ttf"))
+    hindi = bool(DEVANAGARI.search(text))
+    main, other = ("Deva", "Noto") if hindi else ("Noto", "Deva")
+    pdf.set_fallback_fonts([other])
+    pdf.set_text_shaping(True)
+    pdf.add_page()
+    pdf.set_font(main, "B", 14)
+    pdf.multi_cell(0, 8, title, new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(3)
+    for line in text.split("\n"):
+        raw = line.strip()
+        if not raw:
+            pdf.ln(3)
+            continue
+        bold = raw.startswith("#") or (raw.startswith("**") and raw.endswith("**"))
+        clean = raw.lstrip("#").strip().replace("**", "")
+        if raw == "---":
+            pdf.ln(2)
+            pdf.line(pdf.l_margin, pdf.get_y(), pdf.w - pdf.r_margin, pdf.get_y())
+            pdf.ln(3)
+            continue
+        pdf.set_font(main, "B" if bold else "", 11 if bold else 10.5)
+        pdf.multi_cell(0, 5.8, clean, new_x="LMARGIN", new_y="NEXT")
+    return bytes(pdf.output())
 
 
 def case_summary_md(case: dict, analysis: dict) -> str:

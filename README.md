@@ -1,5 +1,7 @@
 # Nyaya: AI legal help for everyday problems in India
 
+**Live app:** https://nyaya-ai-lawyer.streamlit.app
+
 A conversational assistant that takes your problem by text or voice, in your own language, and turns it into a case file, evidence and documents you can act on. It covers four problems in depth:
 
 | Covered in depth | Not covered (it refers you to a lawyer or free legal aid) |
@@ -40,7 +42,7 @@ On Streamlit Community Cloud, paste the same `[auth]` block into the app's *Secr
    - an LLM re-rank over the whole case catalog, which works out that "the guy from the office" means Rohit, the HR manager
 
    The best match opens full-screen with a download button, so you can show it at a police station or office. Typed notes ("landlord phone and address") are vault items too. You can search across all cases.
-4. **Documents.** Legal notice, consumer complaint, grievance email, labour complaint, reply to a notice, police complaint, or a case brief for a lawyer. Each is drafted only from the case file; anything missing becomes `[FILL: …]`. Annexures refer to vault files. You can edit the draft, download it as .docx or .txt, and save it back to the vault.
+4. **Documents.** Legal notice, consumer complaint, grievance email, labour complaint, reply to a notice, police complaint, or a case brief for a lawyer. Each is drafted only from the case file; anything missing becomes `[FILL: …]`. Annexures refer to vault files. You can edit the draft, download it as PDF (Hindi renders correctly), Word or text, and save it back to the vault. The private "notes for you" (how to send it, what to keep) are shown on screen but never included in the downloaded files.
 5. **Explain a document.** Any notice or letter in the vault can be explained: what it says, deadlines, how serious it is, what to do, and whether you need a lawyer.
 6. **Practice.** The AI plays the landlord, HR or seller with the excuses they usually give, then coaches you on your arguments.
 

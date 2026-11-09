@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import re
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -32,11 +33,19 @@ st.markdown("""
   font-feature-settings: "liga"; -webkit-font-feature-settings: "liga";
 }
 /* case list: title buttons (first column) left-aligned, one line with ellipsis */
-.st-key-case_list [data-testid="stColumn"]:first-child button { justify-content: flex-start; text-align: left; }
+.st-key-case_list [data-testid="stColumn"]:first-child button,
+.st-key-case_list [data-testid="stColumn"]:first-child button * { justify-content: flex-start !important; text-align: left !important; }
 .st-key-case_list [data-testid="stColumn"]:first-child button > div { min-width: 0; overflow: hidden; }
 .st-key-case_list [data-testid="stColumn"]:first-child button p {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;
 }
+/* main tabs: larger labels and icons, more breathing room */
+.stTabs [role="tablist"] { gap: 2.4rem; margin-top: 0.4rem; }
+.stTabs [data-testid="stTab"] { height: auto; padding: 0.55rem 0.15rem 0.7rem; }
+.stTabs [data-testid="stTab"] p { font-size: 1.1rem; }
+.stTabs [data-testid="stTab"] span[role="img"] { font-size: 1.4rem; margin-right: 0.3rem; vertical-align: -0.28rem !important; }
+/* signed-in user row at the bottom of the sidebar */
+.st-key-user_row p { margin: 0; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -90,12 +99,6 @@ UPLOAD_TYPES = ["png", "jpg", "jpeg", "webp", "pdf", "txt", "docx", "mp3", "wav"
 with st.sidebar:
     st.title(f"{I['app']} Nyaya")
     st.caption("AI legal help for everyday problems in India. Not a lawyer.")
-    if AUTH:
-        u1, u2 = st.columns([4, 1], vertical_alignment="center")
-        u1.caption(f":material/account_circle: {st.user.get('name') or USER_ID}")
-        u2.button("", icon=":material/logout:", help="Sign out", on_click=st.logout, key="logout")
-    else:
-        st.caption(":material/person_off: Guest mode - cases are stored on this computer only")
 
     # ---- cases, listed like chats ----
     cases = store.list_cases(ROOT)
@@ -159,6 +162,15 @@ with st.sidebar:
     st.divider()
     st.caption("Covers in depth: security deposit · unpaid salary · consumer refunds · notices received. "
                "Free legal aid: **NALSA 15100** · Consumer helpline **1915** · Emergency **112**.")
+    st.divider()
+    if AUTH:
+        with st.container(key="user_row"):
+            u1, u2 = st.columns([5, 1], vertical_alignment="center")
+            u1.markdown(f":material/account_circle: **{st.user.get('name') or USER_ID}**  \n"
+                        f"<small>{USER_ID}</small>", unsafe_allow_html=True)
+            u2.button("", icon=":material/logout:", help="Sign out", on_click=st.logout, key="logout", type="tertiary")
+    else:
+        st.caption(":material/person_off: Guest mode - cases are stored on this computer only")
 
 case = store.load(st.session_state.case_id, ROOT)
 analysis = case.get("analysis") or rules.analyze(case["facts"], engine.all_user_text(case))
@@ -447,18 +459,26 @@ with tab_docs:
                 st.error(f"Fill these {len(doc['placeholders'])} blanks before sending: " + ", ".join(dict.fromkeys(doc["placeholders"])), icon=I["warn"])
             render_warnings(doc.get("warnings"))
             edited = st.text_area("Edit", value=doc["content"], height=420, key=f"doc_{doc['id']}")
-            e1, e2, e3, e4 = st.columns(4)
-            if e1.button("Save edits", icon=I["save"], key=f"save_{doc['id']}"):
+            # downloads contain only the document itself; "NOTES FOR YOU" stays on screen (never sent to the other side)
+            body, notes = engine.split_doc(edited)
+            fname = f"{doc['id']}_{re.sub(r'[^A-Za-z0-9]+', '_', doc['type'])[:30].strip('_')}"
+            e1, e2, e3, e4, e5 = st.columns(5)
+            if e1.button("Save edits", icon=I["save"], key=f"save_{doc['id']}", width="stretch"):
                 doc["content"] = edited
                 store.save(case)
                 st.rerun()
-            e2.download_button(".docx", engine.to_docx(doc["type"], edited), file_name=f"{doc['id']}_{doc['type'][:30]}.docx",
-                               icon=I["download"], key=f"dx_{doc['id']}")
-            e3.download_button(".txt", edited.encode("utf-8"), file_name=f"{doc['id']}.txt", icon=I["download"], key=f"tx_{doc['id']}")
-            if e4.button("Save to vault", icon=I["vault"], key=f"tv_{doc['id']}"):
-                rec = vault.ingest(case, None, f"{doc['id']}_{doc['type'][:30]}.docx", engine.to_docx(doc["type"], edited),
+            e2.download_button("PDF", engine.to_pdf(doc["type"], body), file_name=f"{fname}.pdf", mime="application/pdf",
+                               icon=I["download"], key=f"pdf_{doc['id']}", width="stretch")
+            e3.download_button("Word", engine.to_docx(doc["type"], body), file_name=f"{fname}.docx",
+                               icon=I["download"], key=f"dx_{doc['id']}", width="stretch")
+            e4.download_button("Text", body.encode("utf-8"), file_name=f"{fname}.txt", icon=I["download"],
+                               key=f"tx_{doc['id']}", width="stretch")
+            if notes:
+                st.info("**Notes for you (not included in the downloads):**\n\n" + notes, icon=":material/lightbulb:")
+            if e5.button("Save to vault", icon=I["vault"], key=f"tv_{doc['id']}", width="stretch"):
+                rec = vault.ingest(case, None, f"{fname}.pdf", engine.to_pdf(doc["type"], body),
                                    note=f"Generated: {doc['type']}", source="generated", analyze=False)
-                rec["text"] = edited
+                rec["text"] = body
                 rec["ai"] = {"title": f"{doc['type']} (draft {doc['id']})", "category": "generated_document",
                              "description": edited[:300], "people": [], "dates": [], "amounts": [], "key_text": "",
                              "tags": vault._tokens(doc["type"])}
